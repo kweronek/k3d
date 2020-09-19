@@ -22,7 +22,8 @@ echo "**************************************************************************
 kubectl get deployments --all-namespaces -o wide
 echo "****************************************************************************************** kubectl create/run"
 kubectl create deployment nginx --image=bitnami/nginx
-kubectl run --generator=run-pod/v1 mycountry --image=zoobab/country
+# kubectl run --generator=run-pod/v1 mycountry --image=zoobab/country #deprecated
+kubectl run mycontry --image=zoobab/country --port=80 --restart=Always # replacement
 sleep 45
 echo "****************************************************************************************** get deployments --all-namespaces"
 kubectl get deployments --all-namespaces -o wide
