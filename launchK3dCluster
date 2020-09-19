@@ -1,0 +1,57 @@
+#!/bin/zsh
+clear
+echo "******************************************************************************************"
+k3d version
+echo "******************************************************************************************"
+k3d check-tools
+echo "****************************************************************************************** create cluster"
+echo Run a K3D-K3S-Cluster: name $1 with $2 worker nodes
+k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:v1.17.0-k3s.1
+# k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:latest
+sleep 12
+echo "****************************************************************************************** KUBECONFIG"
+export KUBECONFIG="$(k3d get-kubeconfig --name=$1)"
+echo "OK"
+echo "****************************************************************************************** docker ps"
+docker ps
+echo "****************************************************************************************** cluster-info"
+kubectl cluster-info
+sleep 5
+echo "****************************************************************************************** label worker-nodes"
+for ((CNT=0; CNT<$2; CNT+=1)); do
+	kubectl label node k3d-$1-worker-$CNT node-role.kubernetes.io/worker=worker
+done
+sleep 10	
+echo "****************************************************************************************** get nodes"
+kubectl get nodes -o wide
+sleep 60
+echo "****************************************************************************************** get pods --all-namespaces"
+kubectl get pods --all-namespaces -o wide
+echo "****************************************************************************************** get deployments --all-namespaces"
+kubectl get deployments --all-namespaces -o wide
+# echo "****************************************************************************************** create delete cluster file"
+# echo "k3d --verbose delete -name "$1 > delete-$1.sh
+# chmod 770 delete-$1.sh
+# echo "k3d --verbose list" >> delete-$1.sh
+echo "****************************************************************************************** kubectl create/run"
+kubectl create deployment nginx --image=bitnami/nginx
+kubectl run --generator=run-pod/v1 mycountry --image=zoobab/country
+ sleep 45
+echo "****************************************************************************************** get deployments --all-namespaces"
+kubectl get deployments --all-namespaces -o wide
+echo "****************************************************************************************** get pods --all-namespaces"
+kubectl get pods --all-namespaces -o wide
+echo "****************************************************************************************** kubectl logs"
+kubectl logs $(kubectl get pods -o name --namespace default|grep nginx) > ./nginx.log
+echo "kubectl logs nginx > ./nginx.log"
+kubectl logs mycountry > ./mycountry.log
+echo "kubectl logs mycountry > ./mycountry.log"
+echo "****************************************************************************************** cat ./mycontry.log"
+cat ./mycountry.log
+echo "****************************************************************************************** cat ./nginx.log"
+cat ./nginx.log
+echo "****************************************************************************************** k3d delete"
+# k3d --verbose delete -name $1
+echo "****************************************************************************************** k3d list"
+k3d list
+echo "****************************************************************************************** end"
