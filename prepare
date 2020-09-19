@@ -1,0 +1,4 @@
+sudo -s
+wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
+snap install docker 
+snap install kubectl
