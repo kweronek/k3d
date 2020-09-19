@@ -5,10 +5,8 @@ k3d version
 echo "******************************************************************************************"
 # k3d check-tools # removed V>=3.0
 echo "****************************************************************************************** create cluster"
-echo Run a K3D-K3S-Cluster: name $1 with $2 worker nodes
-k3d cluster create $1 --agents $2 --api-port 127.0.0.1:6444 
-# k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:v1.17.0-k3s.1
-# k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:latest
+echo Run a K3D-K3S-Cluster: name $1 with $2 worker and $3 master nodes
+k3d cluster create $1 --agents $2 --servers $3 --wait --timeout 200 --api-port 127.0.0.1:6444 
 sleep 12
 echo "****************************************************************************************** KUBECONFIG"
 # export KUBECONFIG="$(k3d kubeconfig get $1)"
@@ -27,14 +25,10 @@ echo "**************************************************************************
 kubectl get pods --all-namespaces -o wide
 echo "****************************************************************************************** get deployments --all-namespaces"
 kubectl get deployments --all-namespaces -o wide
-# echo "****************************************************************************************** create delete cluster file"
-# echo "k3d --verbose delete -name "$1 > delete-$1.sh
-# chmod 770 delete-$1.sh
-# echo "k3d --verbose list" >> delete-$1.sh
 echo "****************************************************************************************** kubectl create/run"
 kubectl create deployment nginx --image=bitnami/nginx
 kubectl run --generator=run-pod/v1 mycountry --image=zoobab/country
- sleep 45
+sleep 45
 echo "****************************************************************************************** get deployments --all-namespaces"
 kubectl get deployments --all-namespaces -o wide
 echo "****************************************************************************************** get pods --all-namespaces"
@@ -51,5 +45,5 @@ cat ./nginx.log
 echo "****************************************************************************************** k3d delete"
 # k3d --verbose delete -name $1
 echo "****************************************************************************************** k3d list"
-k3d list
+k3d cluster list
 echo "****************************************************************************************** end"
