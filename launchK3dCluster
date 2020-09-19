@@ -6,7 +6,7 @@ echo "**************************************************************************
 # k3d check-tools # removed V>=3.0
 echo "****************************************************************************************** create cluster"
 echo Run a K3D-K3S-Cluster: name $1 with $2 worker and $3 master nodes
-k3d cluster create $1 --agents $2 --servers $3 --wait --timeout 200 --api-port 127.0.0.1:6444 
+k3d cluster create $1 --agents $2 --servers $3 --wait --timeout 200s --api-port 127.0.0.1:6444 
 sleep 12
 echo "****************************************************************************************** KUBECONFIG"
 # export KUBECONFIG="$(k3d kubeconfig get $1)"
