@@ -2,12 +2,9 @@
 clear
 echo "******************************************************************************************"
 k3d version
-echo "******************************************************************************************"
-# k3d check-tools # removed V>=3.0
 echo "****************************************************************************************** create cluster"
 echo Run a K3D-K3S-Cluster: name $1 with $2 worker and $3 master nodes
 k3d cluster create $1 --agents $2 --servers $3 --wait --timeout 200s --api-port 127.0.0.1:6444 
-sleep 12
 echo "****************************************************************************************** KUBECONFIG"
 # export KUBECONFIG="$(k3d kubeconfig get $1)"
 k3d kubeconfig get $1
@@ -20,7 +17,7 @@ kubectl cluster-info
 sleep 10	
 echo "****************************************************************************************** get nodes"
 kubectl get nodes -o wide
-sleep 60
+sleep 45
 echo "****************************************************************************************** get pods --all-namespaces"
 kubectl get pods --all-namespaces -o wide
 echo "****************************************************************************************** get deployments --all-namespaces"
