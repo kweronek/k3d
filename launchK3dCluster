@@ -5,17 +5,16 @@ k3d version
 echo "****************************************************************************************** create cluster"
 echo Run a K3D-K3S-Cluster: name $1 with $2 worker and $3 master nodes
 k3d cluster create $1 --agents $2 --servers $3 --wait --timeout 200s --api-port 127.0.0.1:6444 
-echo "****************************************************************************************** KUBECONFIG"
-k3d kubeconfig get $1
+# echo "****************************************************************************************** KUBECONFIG"
+# k3d kubeconfig get $1
 echo "****************************************************************************************** docker ps"
 docker ps
 echo "****************************************************************************************** cluster-info"
 k3d cluster list
 kubectl cluster-info
-sleep 10	
 echo "****************************************************************************************** get nodes"
 kubectl get nodes -o wide
-sleep 45
+# sleep 45
 echo "****************************************************************************************** get pods --all-namespaces"
 kubectl get pods --all-namespaces -o wide
 echo "****************************************************************************************** get deployments --all-namespaces"
