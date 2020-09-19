@@ -3,23 +3,26 @@ clear
 echo "******************************************************************************************"
 k3d version
 echo "******************************************************************************************"
-k3d check-tools
+# k3d check-tools # removed V>=3.0
 echo "****************************************************************************************** create cluster"
 echo Run a K3D-K3S-Cluster: name $1 with $2 worker nodes
-k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:v1.17.0-k3s.1
+k3d cluster create $1 --agents $2 --api-port 127.0.0.1:6444 
+# k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:v1.17.0-k3s.1
 # k3d --verbose create --workers $2 --name $1 --api-port 127.0.0.1:6444 --image docker.io/rancher/k3s:latest
 sleep 12
 echo "****************************************************************************************** KUBECONFIG"
-export KUBECONFIG="$(k3d get-kubeconfig --name=$1)"
+# export KUBECONFIG="$(k3d kubeconfig get $1)"
+k3d kubeconfig get $1
 echo "OK"
 echo "****************************************************************************************** docker ps"
 docker ps
 echo "****************************************************************************************** cluster-info"
+k3d cluster list
 kubectl cluster-info
 sleep 5
 echo "****************************************************************************************** label worker-nodes"
 for ((CNT=0; CNT<$2; CNT+=1)); do
-	kubectl label node k3d-$1-worker-$CNT node-role.kubernetes.io/worker=worker
+#	kubectl label node k3d-$1-worker-$CNT node-role.kubernetes.io/worker=worker
 done
 sleep 10	
 echo "****************************************************************************************** get nodes"
