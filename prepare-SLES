@@ -7,7 +7,7 @@ sudo zypper up
 sudo echo Y | zypper in docker docker-compose
 sudo systemctl start docker
 sudo systemctl status docker
-sudo systemctl enable docker
+sudo echo q | systemctl enable docker
 sudo docker run --rm hello-world
 sudo usermod -aG docker $(whoami)
 #
@@ -16,6 +16,6 @@ sudo zypper echo a | addrepo https://download.opensuse.org/repositories/devel:Ca
 sudo zypper refresh
 sudo zypper echo Y | install kubectl
 #
-wget -q -O - https://raw.githubusercontent.com/kweronek/k3d/master/launchK3dCluster
+wget https://raw.githubusercontent.com/kweronek/k3d/master/launchK3dCluster
 chmod 754 launchK3dCluster
 
