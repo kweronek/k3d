@@ -4,7 +4,7 @@
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 #
 # update system
-sudo zypper up 
+sudo zypper up | echo 'y'
 #
 # install docker (using zypper in SLES)
 sudo zypper -n install -y docker  --non-interactive
