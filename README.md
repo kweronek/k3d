@@ -18,11 +18,13 @@ Make sure your security groups allows any2any traffic (this must be changed in p
 Connect to your server using ssh. (AWS will provide you with a predefined string).
 
 ### Software
-Assuming git is installed your open a terminal and type:
-`git clone https://github.com/kweronek/k3d`  
-`export PATH=$PATH:.`  
-`sudo -s`  
-`prepare`  
+Assuming git is installed your open a terminal and type:  
+````
+git clone https://github.com/kweronek/k3d  
+export PATH=$PATH:.  
+sudo -s  
+prepare  
+```
 That's all!
 
 ## Launch Cluster
@@ -33,7 +35,7 @@ To launch a cluster you need to define 3 parameters:
 
 Then launch you cluster (needs sudo) like this:  
 `launchK3sCluster <name> <#worker> <#master>`
-`launchK3sCluster myCluster 3 1`
+Example: `launchK3sCluster myCluster 3 1`
 
 ## Hints to manage your Cluster
 K3D comes with a help function (just typ `k3d`). This will not be repeated here. However most useful commands are:
