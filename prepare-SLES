@@ -19,8 +19,8 @@ sudo usermod -aG docker $(whoami)
 #
 # install kubectl (using zypper in SLES)
 sudo -n zypper addrepo https://download.opensuse.org/repositories/home:aevseev/openSUSE-15.2/home:aevseev.repo  | echo 'a'
-# sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo  | echo 'a'
-sudo zypper refresh
+# sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo
+sudo zypper refresh  | echo 'a'
 sudo zypper -n install -y kubectl
 #
 # get the script for launching k3d-cluster
