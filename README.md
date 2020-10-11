@@ -34,7 +34,7 @@ To launch a cluster you need to define 3 parameters:
 * the number of master nodes.
 
 Then launch you cluster (needs sudo) like this:  
-`launchK3sCluster <name> <#worker> <#master>`
+`launchK3sCluster <name> <#worker> <#master>`  
 Example: `launchK3sCluster myCluster 3 1`
 
 ## Hints to manage your Cluster
@@ -44,14 +44,14 @@ k3d cluster list/start/stop/delete
 k3d node list/start/stop/create/delete 
 ```
 
-The K8S-CLI `kubectl` also has a help function (just type `kubectl`). Most useful command are:
+The K8S-CLI `kubectl` also has a help function (just type `kubectl`). Most useful commands are:
 ```
 kubectl cluster-info  
 kubectl get nodes  
 kubectl get pods --all-namespaces  
 kubectl get deployments --all-namespaces  
 ```
-Thees are used in the script `launchK3SCluster` as an example.
+These are used in the script `launchK3SCluster` as an example.
 
 ## Explanation
 
