@@ -22,19 +22,19 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 SLES 15.2 is a base linux distribution therefor we need some software installation before launching the cluster.  
 Open a terminal and type:
 ```
-curl -LJO https://github.com/kweronek/k3d/prepare-SLES
+sudo -s 
+wget https://raw.githubusercontent.com/kweronek/k3d/master/prepare-SLES
 chmod 754 prepare-SLES  
-export PATH=$PATH:.  
-sudo -s  
+export PATH=$PATH:.   
 prepare-SLES  
 ```
 
 #### Ubuntu 20.04
 On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:  
 ```
+sudo -s
 git clone https://github.com/kweronek/k3d  
-export PATH=$PATH:.  
-sudo -s  
+export PATH=$PATH:.    
 prepare-Ubuntu  
 ```
 That's all!
