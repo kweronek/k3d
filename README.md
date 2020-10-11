@@ -35,6 +35,7 @@ On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:
 sudo -s
 git clone https://github.com/kweronek/k3d  
 export PATH=$PATH:.    
+cd k3d  
 prepare-Ubuntu  
 ```
 That's all!
