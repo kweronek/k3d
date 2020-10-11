@@ -18,7 +18,7 @@ sudo docker run --rm hello-world
 sudo usermod -aG docker $(whoami)
 #
 # install kubectl (using zypper in SLES)
-sudo zypper addrepo https://download.opensuse.org/repositories/home:aevseev/openSUSE-15.2/home:aevseev.repo
+sudo zypper addrepo https://download.opensuse.org/repositories/home:aevseev/openSUSE-15.2/home:aevseev.repo | echo 'a'
 # sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo
 sudo zypper refresh  | echo 'a'
 sudo zypper -n install -y kubectl
