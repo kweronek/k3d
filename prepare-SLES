@@ -4,7 +4,7 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 #
 sudo zypper up
 # install docker (using zypper in SLES)
-sudo echo "Y" | zypper in docker docker-compose
+sudo echo "Y" | zypper in docker
 sudo systemctl start docker
 systemctl is-active --quiet docker && echo Docker is running
 sudo systemctl enable docker
