@@ -1,6 +1,6 @@
 # Launch a K3D-CLuster
-The script gives you an easy possibility to create a Kubernetes Cluster based on K3S/K3D on Ubuntu.
-The files also gives a demo of useful commands to manage the cluster.
+The script gives you an easy possibility to create a Kubernetes Cluster based on K3S/K3D on Ubuntu/SUSE linux.
+The files also give a demo of useful commands to manage the cluster.
 
 ## Prerequisites
 As hardware you may use your PC or an apropriate AWS-instance (or other cloud services like Azure or GoogleCloud)
@@ -9,7 +9,7 @@ As hardware you may use your PC or an apropriate AWS-instance (or other cloud se
 The minimum hardware requirements depend on the number of masters, the number of the nodes and the size of the business software.
 With one master node and one worker node and a tiny software to run, you need 1 core and 1GB RAM at least.
 Recommended are at least 2 cores with 4GB RAM for 1 master and 3 worker. For test purposes this will fit for 3 master and 3 workers. In the latter case there is almost no RAM left for applications.
-As a thumb rule you shold plan 600MB for a master and 300MB for worker nodes
+As a thumb rule you shold plan 600MB for a master and 300MB for worker nodes.
 
 #### Using AWS (optional)
 You should have a key-pair before continueing.  
