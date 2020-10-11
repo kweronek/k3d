@@ -14,7 +14,7 @@ k3d cluster list
 kubectl cluster-info
 echo "****************************************************************************************** get nodes"
 kubectl get nodes -o wide
-# sleep 45
+sleep 20
 echo "****************************************************************************************** get pods --all-namespaces"
 kubectl get pods --all-namespaces -o wide
 echo "****************************************************************************************** get deployments --all-namespaces"
