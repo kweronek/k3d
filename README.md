@@ -1,4 +1,4 @@
-# Launch a K3D-CLuster on Ubuntu
+# Launch a K3D-CLuster
 The script gives you an easy possibility to create a Kubernetes Cluster based on K3S/K3D on Ubuntu.
 The files also gives a demo of useful commands to manage the cluster.
 
@@ -18,7 +18,12 @@ Make sure your security groups allows any2any traffic (this must be changed in p
 Connect to your server using ssh. (AWS will provide you with a predefined string).
 
 ### Software
-Assuming git is installed your open a terminal and type:  
+#### openSUSE 15.2/SLES 15.2
+Since `prepare` uses snap, that is not pre-installed on SUSE so for you need
+
+
+#### Ubuntu 20.04 / SUSE 15.2
+On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:  
 ```
 git clone https://github.com/kweronek/k3d  
 export PATH=$PATH:.  
