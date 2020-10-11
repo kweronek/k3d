@@ -4,10 +4,10 @@
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 #
 # update system
-sudo zypper up
+sudo zypper up --non-interactive 
 #
 # install docker (using zypper in SLES)
-sudo echo "Y" | zypper in docker
+sudo zypper install docker  --non-interactive
 sudo systemctl start docker
 systemctl is-active --quiet docker && echo Docker is running
 sudo systemctl enable docker
@@ -15,9 +15,9 @@ sudo docker run --rm hello-world
 sudo usermod -aG docker $(whoami)
 #
 # install kubectl (using zypper in SLES)
-sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo
-sudo zypper refresh
-sudo zypper echo "Y" | install kubectl
+sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo --no-gpg-checks
+sudo zypper refresh --quiet
+sudo zypper install kubectl --non-interactive
 #
 # get the script for launching k3d-cluster
 wget https://raw.githubusercontent.com/kweronek/k3d/master/launchK3dCluster
