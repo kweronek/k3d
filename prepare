@@ -8,8 +8,5 @@ sudo snap install docker
 # install kubectl (using snap in ubuntu)
 sudo snap install kubectl --classic
 #
-# adding . to PATH to avoind typing ./
-export PATH=$PATH:.
-#
 reboot server
 sudo -r shutdown +15 "this server-instances will be rebootet soon!"
