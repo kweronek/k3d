@@ -1,8 +1,11 @@
 # prepare SLES for use with k3d
+#
 # install k3d:
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 #
+# update system
 sudo zypper up
+#
 # install docker (using zypper in SLES)
 sudo echo "Y" | zypper in docker
 sudo systemctl start docker
@@ -16,6 +19,11 @@ sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:
 sudo zypper refresh
 sudo zypper echo "Y" | install kubectl
 #
+# get the script for launching k3d-cluster
 wget https://raw.githubusercontent.com/kweronek/k3d/master/launchK3dCluster
 chmod 754 launchK3dCluster
-
+#
+# reboot system
+echo "System will reboot in 10s"
+sleep 10
+shutdown -r  now
