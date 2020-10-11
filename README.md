@@ -22,7 +22,8 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 SLES 15.2 is a base linux distribution therefor we need some software installation before launching the cluster.  
 Open a terminal and type:
 ```
-wget https://github.com/kweronek/k3d/prepare-SLES  
+curl -LJO https://github.com/kweronek/k3d/prepare-SLES
+chmod 754 prepare-SLES  
 export PATH=$PATH:.  
 sudo -s  
 prepare-SLES  
