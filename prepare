@@ -2,3 +2,5 @@
 wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bash
 sudo snap install docker 
 sudo snap install kubectl --classic
+export PATH=$PATH:.
+sudo reboot
