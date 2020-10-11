@@ -6,7 +6,7 @@ sudo zypper up
 # install docker (using zypper in SLES)
 sudo echo "Y" | zypper in docker docker-compose
 sudo systemctl start docker
-sudo echo "q" | systemctl status docker
+systemctl is-active --quiet docker && echo Docker is running
 sudo systemctl enable docker
 sudo docker run --rm hello-world
 sudo usermod -aG docker $(whoami)
