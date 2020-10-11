@@ -19,8 +19,14 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 
 ### Software
 #### openSUSE 15.2/SLES 15.2
-Since `prepare` uses snap, that is not pre-installed on SUSE so for you need
-
+SLES 15.2 is a base linux distribution therefor we need some software installation before launching the cluster.  
+Open a terminal and type:
+```
+wget https://github.com/kweronek/k3d/prepare-SLES  
+export PATH=$PATH:.  
+sudo -s  
+prepare-SLES  
+```
 
 #### Ubuntu 20.04
 On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:  
@@ -28,7 +34,7 @@ On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:
 git clone https://github.com/kweronek/k3d  
 export PATH=$PATH:.  
 sudo -s  
-prepare  
+prepare-Ubuntu  
 ```
 That's all!
 
