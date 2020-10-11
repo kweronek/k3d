@@ -12,20 +12,39 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 
 ### Prepare machine
 (Assuming git is installed)
-git clone https://github.com/kweronek/k3d
-./prepare
+`git clone https://github.com/kweronek/k3d`
+`./prepare` 
 That's all!
 
 ## Launch Cluster
 To launch a cluster you need to define 3 parameters:
-  the name of your cluster,
-  the number of worker nodes,
-  the nuberr of master nodes
+* the name of your cluster,
+*  the number of worker nodes,
+*  the nuberr of master nodes
 
 Then launch you cluster like this:  
 
-launchK3sCluster <name> <#worker> <#master>
-laucnhK3sCluster test 3 1
+`launchK3sCluster <name> <#worker> <#master>`
+`launchK3sCluster test 3 1`
+
+## Hints to manage your Cluster
+K3D comes with a help function (just typ `k3d`). This will not be repeated here. However most useful commands are:
+```
+* k3d cluster list/start/stop/delete
+* k3d node list/start/stop/create/delete 
+```
+
+The K8S-CLI `kubectl` also has a help function (just type `kubectl`). Most useful command are:
+```
+* kubectl cluster-info
+* kubectl get nodes
+* kubectl get pods --all-namespaces
+* kubectl get deployments --all-namespaces
+```
+Thees are used in the script `launchK3SCluster` as an example.
+
+
+
 
 ## Explanation
 
