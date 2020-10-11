@@ -19,8 +19,8 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 ### Software
 Assuming git is installed your open a terminal and type:
 `git clone https://github.com/kweronek/k3d`  
-`export PATH=$PAHT:.`
-`sudo -s`
+`export PATH=$PAHT:.`  
+`sudo -s`  
 `prepare`  
 That's all!
 
