@@ -22,7 +22,7 @@ Connect to your server using ssh. (AWS will provide you with a predefined string
 Since `prepare` uses snap, that is not pre-installed on SUSE so for you need
 
 
-#### Ubuntu 20.04 / SUSE 15.2
+#### Ubuntu 20.04
 On Ubuntu 20.04 git is already pre-installed. Open a terminal and type:  
 ```
 git clone https://github.com/kweronek/k3d  
