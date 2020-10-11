@@ -10,7 +10,7 @@ wget -q -O - https://raw.githubusercontent.com/rancher/k3d/main/install.sh | bas
 sudo zypper -n up | echo 'y'
 #
 # install docker (using zypper in SLES)
-sudo zypper -n install -y docker  --non-interactive
+sudo zypper -n install -y docker
 sudo systemctl start docker
 systemctl is-active --quiet docker && echo Docker is running
 sudo systemctl enable docker
@@ -18,7 +18,8 @@ sudo docker run --rm hello-world
 sudo usermod -aG docker $(whoami)
 #
 # install kubectl (using zypper in SLES)
-sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo  | echo 'a'
+sudo -n zypper -y addrepo https://download.opensuse.org/repositories/home:aevseev/openSUSE-15.2/home:aevseev.repo  | echo 'a'
+# sudo zypper addrepo https://download.opensuse.org/repositories/devel:CaaSP:Head:ControllerNode/SLE_15/devel:CaaSP:Head:ControllerNode.repo  | echo 'a'
 sudo zypper refresh
 sudo zypper -n install -y kubectl
 #
