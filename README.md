@@ -38,7 +38,11 @@ export PATH=$PATH:.
 cd k3d  
 prepare-Ubuntu  
 ```
-That's all!
+#### MacOS
+To install k3d on MacOS please see:  
+[https://github.com/k3d-io/k3d/tree/main](https://github.com/k3d-io/k3d/tree/main)
+
+
 
 ## Launch Cluster
 To launch a cluster you need to define 3 parameters:
