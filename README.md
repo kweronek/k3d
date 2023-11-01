@@ -18,8 +18,8 @@ Make sure your security groups allows any2any traffic (this must be changed in p
 Connect to your server using ssh. (AWS will provide you with a predefined string).
 
 ### Software
-#### openSUSE 15.2/SLES 15.2
-SLES 15.2 is a base linux distribution therefor we need some software installation before launching the cluster.  
+#### openSUSE 15.5/SLES 15.5
+SLES 15.5 is a base linux distribution therefor we need some software installation before launching the cluster.  
 Open a terminal and type:
 ```
 sudo -s 
@@ -41,8 +41,6 @@ prepare-Ubuntu
 #### MacOS
 To install k3d on MacOS please see:  
 [https://github.com/k3d-io/k3d/tree/main](https://github.com/k3d-io/k3d/tree/main)
-
-
 
 ## Launch Cluster
 To launch a cluster you need to define 3 parameters:
