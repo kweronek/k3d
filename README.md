@@ -1,4 +1,4 @@
-# Launch a K3D-CLuster
+# Launch a K3D-Cluster
 The script gives you an easy possibility to create a Kubernetes Cluster based on K3S/K3D on Ubuntu/SUSE linux.
 The files also give a demo of useful commands to manage the cluster.
 
